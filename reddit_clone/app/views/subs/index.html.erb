@@ -1,0 +1,27 @@
+<h1>ALL SUBS</h1>
+
+<%= button_to "Add Sub", new_sub_url, method: "get" %>
+
+<table>
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Moderator</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subs.each do |sub| %>
+      <tr>
+        <td>
+          <a href="<%=sub_url(sub)%>"><%=sub.title%></a>
+        </td>
+        <td><%=sub.moderator.username%></td>
+        <td><%=sub.description%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

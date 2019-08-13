@@ -1,0 +1,24 @@
+<h1><%= @post.title%></h1>
+<h3>Author: <%= @post.author.username  %></h3>
+<h5>URL: <%= @post.url%></h5>
+<h5>Content: <%= @post.content%></h5>
+
+<% if @post.author == current_user  %>
+ 
+  <form action="<%=edit_post_url(@post)%>" method="GET">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <input type="submit" value="Edit Post">
+  </form>
+    
+  <form action="<%=post_url(@post)%>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Post">
+  </form>
+<% end %>
+
+<h2>Comments</h2>
+    
+<p>
+  <a href="<%=subs_url%>">Subs Index</a>
+</p>
